@@ -18,7 +18,7 @@ npm install tatau
 Convert numerals to te Reo.  
 _Explicit types added for clarity_
 
-```typescript
+```ts
 import tatau from 'tatau';
 
 const tuhi = console.log;
@@ -34,7 +34,7 @@ tuhi(tau); // rima tekau mā tahi
 Convert te Reo to numerals.  
 _Explicit types added for clarity_
 
-```typescript
+```ts
 import tatau from 'tatau';
 
 const tuhi = console.log;
