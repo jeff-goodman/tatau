@@ -1,7 +1,12 @@
 import { billion, hundred, million, ones, ten, thousand } from './constants';
-import { selectedOptions } from './tatau';
 
 export function toReo(input: number): string {
+    if (input > 0 ) {
+        input = Math.floor(input);
+    } else {
+        input = Math.ceil(input);
+    }
+    
     return toReoRaw(input).trim();
 }
 
