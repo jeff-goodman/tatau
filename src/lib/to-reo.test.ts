@@ -73,6 +73,86 @@ describe('toReo', () => {
         881: 'waru rau e waru tekau mā tahi',
         906: 'iwa rau mā ono',
       },
+      'thousands': {
+        1_000: 'kotahi mano',
+        1_001: 'kotahi mano mā tahi',
+        1_002: 'kotahi mano mā rua',
+        1_003: 'kotahi mano mā toru',
+        1_004: 'kotahi mano mā whā',
+        1_005: 'kotahi mano mā rima',
+        1_006: 'kotahi mano mā ono',
+        1_007: 'kotahi mano mā whitu',
+        1_008: 'kotahi mano mā waru',
+        1_009: 'kotahi mano mā iwa',
+        1_010: 'kotahi mano e tekau',
+        1_011: 'kotahi mano e tekau mā tahi',
+        1_012: 'kotahi mano e tekau mā rua',
+        1_013: 'kotahi mano e tekau mā toru',
+        1_014: 'kotahi mano e tekau mā whā',
+        1_015: 'kotahi mano e tekau mā rima',
+        1_016: 'kotahi mano e tekau mā ono',
+        1_017: 'kotahi mano e tekau mā whitu',
+        1_018: 'kotahi mano e tekau mā waru',
+        1_019: 'kotahi mano e tekau mā iwa',
+        1_020: 'kotahi mano e rua tekau',
+        1_021: 'kotahi mano e rua tekau mā tahi',
+        1_022: 'kotahi mano e rua tekau mā rua',
+        1_023: 'kotahi mano e rua tekau mā toru',
+        1_024: 'kotahi mano e rua tekau mā whā',
+        1_025: 'kotahi mano e rua tekau mā rima',
+        1_026: 'kotahi mano e rua tekau mā ono',
+        1_027: 'kotahi mano e rua tekau mā whitu',
+      },
+      'millions': {
+        1_000_000: 'kotahi miriona',
+        1_000_001: 'kotahi miriona mā tahi',
+        1_000_002: 'kotahi miriona mā rua',
+        1_000_003: 'kotahi miriona mā toru',
+        1_000_004: 'kotahi miriona mā whā',
+        1_000_005: 'kotahi miriona mā rima',
+        1_000_006: 'kotahi miriona mā ono',
+        1_000_007: 'kotahi miriona mā whitu',
+        1_000_008: 'kotahi miriona mā waru',
+        1_000_009: 'kotahi miriona mā iwa',
+        1_000_010: 'kotahi miriona e tekau',
+        1_000_011: 'kotahi miriona e tekau mā tahi',
+        1_000_012: 'kotahi miriona e tekau mā rua',
+        1_000_013: 'kotahi miriona e tekau mā toru',
+        1_000_014: 'kotahi miriona e tekau mā whā',
+        1_000_015: 'kotahi miriona e tekau mā rima',
+        1_000_016: 'kotahi miriona e tekau mā ono',
+        1_000_017: 'kotahi miriona e tekau mā whitu',
+        1_000_018: 'kotahi miriona e tekau mā waru',
+        1_000_019: 'kotahi miriona e tekau mā iwa',
+        1_000_020: 'kotahi miriona e rua tekau',
+        1_000_021: 'kotahi miriona e rua tekau mā tahi',
+        1_000_022: 'kotahi miriona e rua tekau mā rua',
+        1_000_023: 'kotahi miriona e rua tekau mā toru',
+      },
+      'billions': {
+        1_000_000_000: 'kotahi piriona',
+        1_000_000_001: 'kotahi piriona mā tahi',
+        1_000_000_002: 'kotahi piriona mā rua',
+        1_000_000_003: 'kotahi piriona mā toru',
+        1_000_000_004: 'kotahi piriona mā whā',
+        1_000_000_005: 'kotahi piriona mā rima',
+        1_000_000_006: 'kotahi piriona mā ono',
+        1_000_000_007: 'kotahi piriona mā whitu',
+        1_000_000_008: 'kotahi piriona mā waru',
+        1_000_000_009: 'kotahi piriona mā iwa',
+        1_000_000_010: 'kotahi piriona e tekau',
+        1_000_000_011: 'kotahi piriona e tekau mā tahi',
+        1_000_000_012: 'kotahi piriona e tekau mā rua',
+        1_000_000_013: 'kotahi piriona e tekau mā toru',
+        1_000_000_014: 'kotahi piriona e tekau mā whā',
+        1_000_000_015: 'kotahi piriona e tekau mā rima',
+        1_000_000_016: 'kotahi piriona e tekau mā ono',
+        1_000_000_017: 'kotahi piriona e tekau mā whitu',
+        1_000_000_018: 'kotahi piriona e tekau mā waru',
+        1_000_000_019: 'kotahi piriona e tekau mā iwa',
+        1_000_000_020: 'kotahi piriona e rua tekau',
+        1_000_000_021: 'kotahi piriona e rua tekau mā tahi',
+      },
     }; 
   
     for (const [description, tests] of Object.entries(testCases)) {
@@ -170,5 +250,12 @@ describe('toReo', () => {
     }
 
   });
+
+  describe('out of range', () => {
+    it('should return the input as a string', () => {
+      const input = 1_000_000_000_000_000_000_000_000_000_000_000_000_000_000_000;
+      expect(toReo(input)).toBe(input.toString());
+    });
+  })
 
 });

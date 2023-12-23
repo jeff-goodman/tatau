@@ -6,7 +6,7 @@ export function toReo(input: number): string {
     } else {
         input = Math.ceil(input);
     }
-    
+
     return toReoRaw(input).trim();
 }
 
@@ -42,6 +42,9 @@ function toReoRaw(input: number): string {
         if (hundreds === 0) {
             return `${multiplier(thousands)} ${thousand}`;
         }
+        if (hundreds < 10) {
+            return `${multiplier(thousands)} ${thousand} mā ${toReo(hundreds)}`;
+        }
         return `${multiplier(thousands)} ${thousand} e ${toReo(hundreds)}`;
     }
     if (input < 1_000_000_000) {
@@ -50,6 +53,9 @@ function toReoRaw(input: number): string {
         if (thousands === 0) {
             return `${multiplier(millions)} ${million}`;
         }
+        if (thousands < 10) {
+            return `${multiplier(millions)} ${million} mā ${toReo(thousands)}`;
+        }
         return `${multiplier(millions)} ${million} e ${toReo(thousands)}`;
     }
     if (input < 1_000_000_000_000) {
@@ -57,6 +63,9 @@ function toReoRaw(input: number): string {
         const millions = input % 1_000_000_000;
         if (millions === 0) {
             return `${multiplier(billions)} ${billion}`;
+        }
+        if (millions < 10) {
+            return `${multiplier(billions)} ${billion} mā ${toReo(millions)}`;
         }
         return `${multiplier(billions)} ${billion} e ${toReo(millions)}`;
     }
