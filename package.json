@@ -1,6 +1,6 @@
 {
   "name": "tatau",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Te reo number converter",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
