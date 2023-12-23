@@ -19,7 +19,7 @@ Convert numerals to te Reo.
 _Explicit types added for clarity_
 
 ```ts
-import tatau from 'tatau';
+import { tatau } from 'tatau';
 
 const tuhi = console.log;
 
@@ -35,7 +35,7 @@ Convert te Reo to numerals.
 _Explicit types added for clarity_
 
 ```ts
-import tatau from 'tatau';
+import { tatau } from 'tatau';
 
 const tuhi = console.log;
 
