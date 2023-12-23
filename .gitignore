@@ -4,6 +4,7 @@ node_modules/
 # Ignore build & test output directories
 dist/
 coverage/
+*.tgz
 
 # Ignore IDE and editor files
 .vscode/
