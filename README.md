@@ -5,6 +5,8 @@ _(verb)_ to count, calculate, add up, enumerate, tally.
 
 A Javascript / Typescript package which translates between numerals and te reo Maori text.
 
+Tatau is dependency-less. Installing it will not add any additional dependencies to your project.  
+
 ## Installation
 
 Add tatau to your project.
@@ -41,7 +43,7 @@ tuhi(tau); // kore toru
 ```
 
 ### Convert te reo Maori to numerals
-_Explicit types added for clarity_
+_Explicit types added for clarity_  
 _NB: Converting te reo to numerals is not yet supported_
 
 ```ts
