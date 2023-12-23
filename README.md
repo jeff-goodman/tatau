@@ -3,7 +3,7 @@
 [tatau](https://maoridictionary.co.nz/word/7653)  
 _(verb)_ to count, calculate, add up, enumerate, tally.        
 
-A Javascript / Typescript package which translates between numerals and te Reo Maori text.
+A Javascript / Typescript package which translates between numerals and te reo Maori text.
 
 ## Installation
 
@@ -15,7 +15,7 @@ npm install tatau
 
 ## Usage
 
-### Convert numerals to te Reo.  
+### Convert numerals to te reo Maori  
 _Explicit types added for clarity_
 
 ```ts
@@ -40,7 +40,7 @@ tau = tatau(value);
 tuhi(tau); // kore toru
 ```
 
-### Convert te reo to numerals.  
+### Convert te reo Maori to numerals
 _Explicit types added for clarity_
 _NB: Converting te reo to numerals is not yet supported_
 
