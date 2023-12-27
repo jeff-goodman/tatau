@@ -7,6 +7,10 @@ A Javascript / Typescript package which translates between numerals and te reo M
 
 Tatau is dependency-less. Installing it will not add any additional dependencies to your project.  
 
+## Demo
+
+You can see tatau in use on [the demo site](https://jeff-goodman.github.io/tatau-demo/).
+
 ## Installation
 
 Add tatau to your project.
