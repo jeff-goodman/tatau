@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.0.3] - UNRELEASED
+
+### Changed
+
+- NPM ignore src files
+
 ## [0.0.2] - 2023-12-28
 
 ### Added
