@@ -2,37 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## [0.0.2] - 2023-12-28
 
 ### Added
 
-- [Feature 1]
-- [Feature 2]
+- Added link to demo site
+- Added code linter
 
 ### Changed
 
-- [Change 1]
-- [Change 2]
-
-### Deprecated
-
-- [Deprecation 1]
-- [Deprecation 2]
-
-### Removed
-
-- [Removal 1]
-- [Removal 2]
-
-### Fixed
-
-- [Bug fix 1]
-- [Bug fix 2]
-
-### Security
-
-- [Security fix 1]
-- [Security fix 2]
+- Minor refactoring
 
 ## [0.0.1] - 2023-12-24
 
