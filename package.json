@@ -1,12 +1,13 @@
 {
   "name": "tatau",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Te reo number converter",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "test": "jest",
-    "build": "tsc"
+    "build": "tsc",
+    "lint": "eslint 'src/**/*.{js,ts}'",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -20,9 +21,22 @@
   "homepage": "https://github.com/jeff-goodman/tatau#readme",
   "devDependencies": {
     "@types/jest": "^29.5.8",
+    "@typescript-eslint/eslint-plugin": "^6.16.0",
+    "@typescript-eslint/parser": "^6.16.0",
+    "eslint": "^8.56.0",
     "jest": "^29.7.0",
     "ts-jest": "^29.1.1",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
-  }
+  },
+  "keywords": [
+    "te reo",
+    "maori",
+    "translation",
+    "numerals",
+    "tatau",
+    "aotearoa",
+    "nz",
+    "new zealand"
+  ]
 }
