@@ -61,3 +61,42 @@ const value: number = tatau(tau);
 
 tuhi(value); // 51
 ```
+
+### Options
+Use the `TatauOptions` interface for additional configuration.  
+
+The default values are as follows:
+| Option            | Default       | Description           |
+|-----------        |---------------|-----------------------|
+| `ordinalInput`    | `false`       | Set to `true` when the input being provided is an ordinal number, e.g. `7th` or `tuawhitu`.  The default input is cardinal numbers. |
+| `ordinalOutput`   | `false`       | Set to `true` when you want the output to be an ordinal number, e.g. `7th` or `tuawhitu`.  The default output is cardinal numbers. |
+
+### Usage as a class
+Create a new instance of the `Tatau` class to allow you to define `TatauOptions` once.
+
+The methods available on the `Tatau` class are:
+| Method   | Description                             |
+|----------|-------------                            |
+| options  | Get or set the current `TatauOptions`   |
+| tatau    | Convert your value                      |
+
+
+```ts
+import { Tatau, TatauOptions } from 'tatau';
+
+const options: TatauOptions = {
+    ordinalOutput: false,
+};
+
+const tatau = new Tatau(options);
+
+const value = 51;
+
+const tau = tatau.tatau(value);
+
+console.log({
+    tau,                        // rima tekau mā tahi
+    options: tatau.options,     // { ordinalOutput: false }
+});
+
+```
