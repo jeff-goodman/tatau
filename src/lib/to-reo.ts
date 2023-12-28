@@ -1,4 +1,16 @@
 import { numbers, ones } from './constants';
+import { selectedOptions } from './tatau';
+
+export function getPrefix(input: number): string {
+    if(!selectedOptions.ordinalOutput || input <= 0) {
+        return '';
+    } else if (input < 10) {
+        return 'tua';
+    } else {
+        return 'te ';
+    }
+}
+
 
 export function toReo(input: number): string {
     if (input > 0 ) {
