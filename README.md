@@ -85,18 +85,18 @@ The methods available on the `Tatau` class are:
 import { Tatau, TatauOptions } from 'tatau';
 
 const options: TatauOptions = {
-    ordinalOutput: false,
+    ordinalOutput: true,
 };
 
 const tatau = new Tatau(options);
 
-const value = 51;
+const value = 3;
 
 const tau = tatau.tatau(value);
 
 console.log({
-    tau,                        // rima tekau mā tahi
-    options: tatau.options,     // { ordinalOutput: false }
+    tau,                        // tuatoru
+    options: tatau.options,     // { ordinalOutput: true }
 });
 
 ```
