@@ -1,8 +1,9 @@
-import { numbers, ones } from './constants';
-import { selectedOptions } from './tatau';
+import { numbers, ones } from '../constants';
+import { TatauOptions } from '../options';
 
-export function getPrefix(input: number): string {
-    if(!selectedOptions.ordinalOutput || input <= 0) {
+export function getPrefix(input: number, options: TatauOptions): string {
+
+    if(!options.ordinalOutput || input < 1) {
         return '';
     } else if (input < 10) {
         return 'tua';
