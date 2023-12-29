@@ -4,6 +4,7 @@ node_modules/
 # Ignore build & test output directories
 dist/
 coverage/
+reports/
 *.tgz
 
 # Ignore IDE and editor files
@@ -19,3 +20,6 @@ coverage/
 # Ignore OS generated files
 .DS_Store
 Thumbs.db
+
+# stryker temp files
+.stryker-tmp

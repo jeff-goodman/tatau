@@ -1,3 +1,5 @@
+export const minInvalidInput = 1_000_000_000_000;
+
 export const ones: Record<number, string> = {
     0: 'kore',
     1: 'tahi',

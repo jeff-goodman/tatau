@@ -7,7 +7,8 @@
   "scripts": {
     "build": "tsc",
     "lint": "eslint 'src/**/*.{js,ts}'",
-    "test": "jest"
+    "test": "jest",
+    "test-mutants": "npx stryker run"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,8 @@
   },
   "homepage": "https://github.com/jeff-goodman/tatau#readme",
   "devDependencies": {
+    "@stryker-mutator/core": "^8.0.0",
+    "@stryker-mutator/jest-runner": "^8.0.0",
     "@types/jest": "^29.5.8",
     "@typescript-eslint/eslint-plugin": "^6.16.0",
     "@typescript-eslint/parser": "^6.16.0",

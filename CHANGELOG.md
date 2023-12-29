@@ -13,6 +13,7 @@ All notable changes to this project will be documented in this file.
 
 - NPM ignore src files
 - Increased test coverage
+- Added mutant testing
 
 ## [0.0.2] - 2023-12-28
 

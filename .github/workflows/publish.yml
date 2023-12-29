@@ -46,6 +46,9 @@ jobs:
       - name: Test
         run: npm run test
 
+      - name: Test Mutants
+        run: npm run test-mutants
+
       - name: Build
         run: npm run build
 

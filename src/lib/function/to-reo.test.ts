@@ -1,5 +1,5 @@
 import { TatauOptions } from '../options';
-import { getPrefix, toReo } from './to-reo';
+import { getPrefix, multiplier, toReo } from './to-reo';
 
 describe('to-reo', () => {
 
@@ -49,6 +49,18 @@ describe('to-reo', () => {
       // assert
       expect(result).toBe('');
     });
+
+    it('returns "tua" when input is 1', () => {
+      // arrange
+      const input = 1;
+      options.ordinalOutput = true;
+  
+      // act
+      const result = getPrefix(input, options);
+  
+      // assert
+      expect(result).toBe('tua');
+    });
   
     it('returns "tua" when input is less than 10', () => {
       // arrange
@@ -73,6 +85,54 @@ describe('to-reo', () => {
       // assert
       expect(result).toBe('te ');
     });
+  });
+
+  describe('multiplier', () => {
+    it('returns "tekau" when input is 10', () => {
+      // arrange
+      const input = 10;
+  
+      // act
+      const result = multiplier(input);
+  
+      // assert
+      expect(result).toBe('tekau');
+    });
+  
+    it('returns kotahi when input is 1', () => {
+      // arrange
+      const input = 1;
+  
+      // act
+      const result = multiplier(input);
+  
+      // assert
+      expect(result).toBe('kotahi');
+    });
+
+    it('returns kotahi when input is 1 and excludeOne is false', () => {
+      // arrange
+      const input = 1;
+  
+      // act
+      const result = multiplier(input, false);
+  
+      // assert
+      expect(result).toBe('kotahi');
+    });
+
+    it('returns empty string when input is 1 and excludeOne is true', () => {
+      // arrange
+      const input = 1;
+  
+      // act
+      const result = multiplier(input, true);
+  
+      // assert
+      expect(result).toBe('');
+    });
+
+
   });
   
   describe('toReo', () => {
@@ -228,13 +288,29 @@ describe('to-reo', () => {
           1_000_000_020: 'kotahi piriona e rua tekau',
           1_000_000_021: 'kotahi piriona e rua tekau mā tahi',
         },
+        'edge-cases': {
+          0.0001: 'kore',
+          '-0.0001': 'kore',
+          0.5: 'kore',
+          '-0.5': 'kore',
+          1.0: 'tahi',
+          '-1.0': 'kore tahi',
+          1.1: 'tahi',
+          '-1.1': 'kore tahi',
+          1.99999: 'tahi',
+          '-1.99999': 'kore tahi',
+          1_000_000_000_000: '1000000000000',
+          '-1000000000000': '-1000000000000',
+          1_000_000_000_001: '1000000000001',
+          '-1000000000001': '-1000000000001',
+        }
       }; 
     
       for (const [description, tests] of Object.entries(testCases)) {
         describe(`testing ${description}`, () => {
           for (const [input, expected] of Object.entries(tests)) {
             it(`should return "${expected}" for input ${input}`, () => {
-              expect(toReo(parseInt(input))).toBe(expected);
+              expect(toReo(Number(input))).toBe(expected);
             });
           }
         });
