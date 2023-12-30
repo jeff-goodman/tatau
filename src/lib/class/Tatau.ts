@@ -19,7 +19,7 @@ export class Tatau {
     tatau(input: number): string;
     tatau(input: string): number;
     tatau(input: number | string): number | string {
-        // Stryker disable next-line ConditionalExpression,StringLiteral,EqualityOperator,BlockStatement: Results are equivalent, conditional expression is for type safety only8
+        // Stryker disable next-line ConditionalExpression,StringLiteral,EqualityOperator,BlockStatement: Results are equivalent, conditional expression is for type safety only
         if (typeof input === 'number') {
             return tatau(input, this._options);
         } 
