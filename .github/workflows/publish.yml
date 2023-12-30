@@ -15,8 +15,11 @@ on:
     branches: ['main']
 
 jobs:
+  test:
+    uses: ./.github/workflows/lint-and-test.yml
+
   build:
-    name: Build, test, publish
+    name: Build and Publish
     runs-on: ubuntu-latest
 
     strategy:
@@ -39,15 +42,6 @@ jobs:
 
       - name: CI
         run: npm ci
-
-      - name: Lint
-        run: npm run lint
-
-      - name: Test
-        run: npm run test
-
-      - name: Test Mutants
-        run: npm run test-mutants
 
       - name: Build
         run: npm run build
@@ -78,3 +72,4 @@ jobs:
           release_name: Release v${{ steps.package-version.outputs.version }}
           draft: true
           prerelease: false
+          
