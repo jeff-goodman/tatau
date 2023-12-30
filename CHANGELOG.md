@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [0.0.3] - UNRELEASED
+## [0.0.3] - 2023-12-31
 
 ### Added
 
@@ -14,6 +14,7 @@ All notable changes to this project will be documented in this file.
 - NPM ignore src files
 - Increased test coverage
 - Added mutant testing
+- Added test coverage for Node 18 (18 & 20 now supported)
 
 ## [0.0.2] - 2023-12-28
 
