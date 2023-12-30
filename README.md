@@ -33,14 +33,12 @@ let value: number = 51;
 let tau: string = tatau(value);
 tuhi(tau); // rima tekau mā tahi
 ```
-Decimals are rounded down.
+Decimals are rounded to their integer part.
 ```ts
 value = 107.924;
 tau = tatau(value);
-tuhi(tau); // kotahi rau mā whitu
-```
-Negative decimals are rounded up.
-```ts
+tuhi(tau); // kotahi rau mā whitu  
+  
 value = -3.14;
 tau = tatau(value);
 tuhi(tau); // kore toru
@@ -68,7 +66,7 @@ Use the `TatauOptions` interface for additional configuration.
 The default values are as follows:
 | Option            | Default       | Description           |
 |-----------        |---------------|-----------------------|
-| `ordinalInput`    | `false`       | Set to `true` when the input being provided is an ordinal number, e.g. `7th` or `tuawhitu`.  The default input is cardinal numbers. |
+| `ordinalInput`    | `false`       | Set to `true` when the input being provided is an ordinal number, e.g. `7th` or `tuawhitu`.  The default input is cardinal numbers.  _NB: Ordinal Input is not yet supported._ |
 | `ordinalOutput`   | `false`       | Set to `true` when you want the output to be an ordinal number, e.g. `7th` or `tuawhitu`.  The default output is cardinal numbers. |
 
 ### Usage as a class
