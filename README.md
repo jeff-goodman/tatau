@@ -43,6 +43,12 @@ value = -3.14;
 tau = tatau(value);
 tuhi(tau); // kore toru
 ```
+Specify options you want to apply.
+```ts
+value = 4;
+tau = tatau(value, { ordinalOutput: true });
+tuhi(tau); // tuawhā
+```
 
 ### Convert te reo Māori to numerals
 _Explicit types added for clarity_  
@@ -70,7 +76,7 @@ The default values are as follows:
 | `ordinalOutput`   | `false`       | Set to `true` when you want the output to be an ordinal number, e.g. `7th` or `tuawhitu`.  The default output is cardinal numbers. |
 
 ### Usage as a class
-Create a new instance of the `Tatau` class to allow you to define `TatauOptions` once.
+Create a new instance of the `Tatau` class to allow you to define `TatauOptions` once. Then options are not passed as the second parameter.
 
 The methods available on the `Tatau` class are:
 | Method   | Description                             |
@@ -96,5 +102,15 @@ console.log({
     tau,                        // tuatoru
     options: tatau.options,     // { ordinalOutput: true }
 });
+```
+Use `.options` to change options on an existing instance.
+```ts
+tatau.options = { ordinalOutput: false };
 
+const tau = tatau.tatau(value);
+
+console.log({
+    tau,                        // toru
+    options: tatau.options,     // { ordinalOutput: false }
+});
 ```
