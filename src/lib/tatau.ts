@@ -1,29 +1,28 @@
 import { TatauOptions } from './options';
-import { toNumber } from './to-number';
-import { toReo } from './to-reo';
+import { toNumber } from './function/to-number';
+import { getPrefix, toReo } from './function/to-reo';
 
 const defaultOptions: TatauOptions = {
     ordinalInput: false,
     ordinalOutput: false,
 };
 
-export let selectedOptions: TatauOptions; 
-
 export function tatau(input: number, options?: TatauOptions): string;
 export function tatau(input: string, options?: TatauOptions): number;
 export function tatau(input: number | string, options: TatauOptions = defaultOptions): number | string {
 
-    selectedOptions = options;
+    const selectedOptions = {
+        ...defaultOptions,
+        ...options,
+    };
 
-    if (options.ordinalOutput || options.ordinalInput) {
-        throw new Error('Ordinal numbers not yet implemented');
+    if (selectedOptions.ordinalInput) {
+        throw new Error('Ordinal input not yet implemented');
     }
     
     if (typeof input === 'number') {
-        return toReo(input);
-    } else if (typeof input === 'string') {
-        return toNumber(input);
-    } else {
-        throw new Error('Invalid input type');
+        const prefix = getPrefix(input, selectedOptions);
+        return `${prefix}${toReo(input)}`;
     }
+    return toNumber(input);
 }

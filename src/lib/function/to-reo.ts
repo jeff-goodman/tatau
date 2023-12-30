@@ -1,6 +1,20 @@
-import { numbers, ones } from './constants';
+import { minInvalidInput, numbers, ones } from '../constants';
+import { TatauOptions } from '../options';
+
+export function getPrefix(input: number, options: TatauOptions): string {
+
+    if(!options.ordinalOutput || input < 1) {
+        return '';
+    } else if (input < 10) {
+        return 'tua';
+    } else {
+        return 'te ';
+    }
+}
+
 
 export function toReo(input: number): string {
+    // Stryker disable next-line EqualityOperator: The <= mutant results in an equivalent mutant
     if (input > 0 ) {
         input = Math.floor(input);
     } else {
@@ -11,9 +25,16 @@ export function toReo(input: number): string {
 }
 
 function toReoRaw(input: number): string {
+    // Stryker disable ConditionalExpression: if (false) or if(true) mutants in this section result in circular loop timeouts
+    // Stryker disable next-line EqualityOperator,ArithmeticOperator: /-1 is equivalent, < is equivalent
+    if (input >= minInvalidInput || input <= minInvalidInput * -1) {
+        return input.toString();
+    }
     if (input < 0) {
+        // Stryker disable next-line UnaryOperator: +input results in circular loop timeout
         return `kore ${toReo(-input)}`;
     }
+    // Stryker disable EqualityOperator,BlockStatement: circular loop timeouts
     if (input < 10) {
         return ones[input];
     }
@@ -29,13 +50,16 @@ function toReoRaw(input: number): string {
     if (input < 1_000_000_000) {
         return converter(input, 1_000_000);
     }
+    // Stryker disable next-line EqualityOperator: The <= mutant results in an equivalent mutant
     if (input < 1_000_000_000_000) {
         return converter(input, 1_000_000_000);
     }
+    /* c8 ignore next 3 : lines are unreachable*/
     return input.toString();
+    // Stryker restore ConditionalExpression,EqualityOperator,BlockStatement
 }
 
-function multiplier(input: number, excludeOne: boolean = false): string {
+export function multiplier(input: number, excludeOne: boolean = false): string {
     if (excludeOne) {
         return input === 1 ? '' : toReo(input);
     } else {
@@ -45,6 +69,7 @@ function multiplier(input: number, excludeOne: boolean = false): string {
 
 function converter(input: number, denominator: number): string {
     const quotient = Math.floor(input / denominator);
+    // Stryker disable next-line ArithmeticOperator: Results in circular loop timeout
     const remainder = input % denominator;
     const excludeOne = denominator === 10;
     if (remainder === 0) {

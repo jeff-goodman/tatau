@@ -15,8 +15,11 @@ on:
     branches: ['main']
 
 jobs:
+  test:
+    uses: ./.github/workflows/lint-and-test.yml
+
   build:
-    name: Build, test, publish
+    name: Build and Publish
     runs-on: ubuntu-latest
 
     strategy:
@@ -40,12 +43,6 @@ jobs:
       - name: CI
         run: npm ci
 
-      - name: Lint
-        run: npm run lint
-
-      - name: Test
-        run: npm run test
-
       - name: Build
         run: npm run build
 
@@ -54,3 +51,25 @@ jobs:
 
       - name: Publish to npm
         run: npm publish --access public
+
+      - name: Get package version
+        id: package-version
+        run: echo "::set-output name=version::$(node -p "require('./package.json').version")"
+
+      - name: Create Tag
+        run: git tag v${{ steps.package-version.outputs.version }}
+
+      - name: Push Tag
+        run: git push origin v${{ steps.package-version.outputs.version }}
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+        with:
+          tag_name: v${{ steps.package-version.outputs.version }}
+          release_name: Release v${{ steps.package-version.outputs.version }}
+          draft: true
+          prerelease: false
+          
