@@ -35,7 +35,7 @@ jobs:
       - name: Check if version exists
         id: check-version
         run: |
-          EXISTS=$(npm view ${{ env.packageName }} versions --json | grep -w ${{ steps.package-version.outputs.version }})
+          EXISTS=$(npm view ${{ env.packageName }} versions --json | grep -w ${{ steps.package-version.outputs.version }} || true)
           if [ "$EXISTS" != "" ]; then
             echo "Version $VERSION already exists"
             exit 1
