@@ -4,6 +4,9 @@ permissions:
   contents: read
   actions: read
 
+env:
+  branchName: ${GITHUB_REF##*/}
+
 on:
   pull_request:
     branches: ['main']
@@ -41,3 +44,6 @@ jobs:
 
       - name: Test Mutants
         run: npm run test-mutants
+
+      - name: Build
+        run: npm run build
