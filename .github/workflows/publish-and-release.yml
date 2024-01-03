@@ -12,12 +12,12 @@ on:
     branches: ['main']
 
 jobs:
-  test:
-    uses: ./.github/workflows/lint-and-test.yml
+  check-version:
+    uses: ./.github/workflows/check-version.yml
 
   build:
     name: Publish and Release
-    needs: test
+    needs: check-version
     runs-on: ubuntu-latest
 
     strategy:
