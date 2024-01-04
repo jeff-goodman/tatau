@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.0.4] - 2024-01-05
+
+### Fixed
+
+- Removed config file from published package
+- Minor readme amendment
+
 ## [0.0.3] - 2023-12-31
 
 ### Added
