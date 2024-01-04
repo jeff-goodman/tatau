@@ -83,8 +83,9 @@ The methods available on the `Tatau` class are:
 |----------|-------------                            |
 | options  | Get or set the current `TatauOptions`   |
 | tatau    | Convert your value                      |
-
-
+  
+Example:  
+  
 ```ts
 import { Tatau, TatauOptions } from 'tatau';
 
