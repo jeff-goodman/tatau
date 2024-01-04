@@ -1,0 +1,43 @@
+name: check-version-workflow
+
+permissions:
+  contents: read
+  actions: read
+
+env:
+  branchName: ${GITHUB_REF##*/}
+  packageName: tatau
+
+on:
+    pull_request:
+        branches: ['main']
+    workflow_call:
+
+jobs:
+  test:
+    uses: ./.github/workflows/lint-and-test.yml
+
+  check-version:
+    name: Check Version
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Get package version
+        id: package-version
+        run: echo "::set-output name=version::$(node -p "require('./package.json').version")"
+
+      - name: Check if version exists
+        id: check-version
+        run: |
+          EXISTS=$(npm view ${{ env.packageName }} versions --json | grep -w ${{ steps.package-version.outputs.version }} || true)
+          if [ "$EXISTS" != "" ]; then
+            echo "Version $VERSION already exists"
+            exit 1
+          fi
+          
